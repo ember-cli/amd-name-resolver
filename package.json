@@ -1,0 +1,18 @@
+{
+  "name": "amd-module-resolver",
+  "version": "0.0.1",
+  "description": "AMD module name resolver algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R dot test.js"
+  },
+  "keywords": [
+    "amd"
+  ],
+  "author": "Ember CLI contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
+  }
+}
