@@ -1,6 +1,6 @@
 {
   "name": "amd-name-resolver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AMD module name resolver algorithm",
   "main": "index.js",
   "scripts": {
