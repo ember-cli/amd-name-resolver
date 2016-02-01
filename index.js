@@ -1,3 +1,18 @@
+
+module.exports = moduleResolve;
+
+var throwOnRootAccess = true;
+
+exports.resolveModules = function resolveModules(options) {
+  options = options || {};
+  
+  if (options.throwOnRootAccess === false) {
+    throwOnRootAccess = false;
+  }
+  
+  return moduleResolve;
+}
+
 function moduleResolve(child, name) {
   if (child.charAt(0) !== '.') { return child; }
 
@@ -10,7 +25,11 @@ function moduleResolve(child, name) {
 
     if (part === '..') {
       if (parentBase.length === 0) {
-        throw new Error('Cannot access parent module of root');
+        if (throwOnRootAccess) {
+          throw new Error('Cannot access parent module of root');
+        } else {
+          continue;
+        }
       }
       parentBase.pop();
     } else if (part === '.') {
@@ -21,5 +40,3 @@ function moduleResolve(child, name) {
 
   return parentBase.join('/');
 }
-
-module.exports = moduleResolve;

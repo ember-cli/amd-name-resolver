@@ -2,6 +2,7 @@
 
 var expect = require('chai').expect;
 var moduleResolve = require('./index');
+var resolveModules = moduleResolve.resolveModules;
 
 describe('module resolver', function () {
   it('should resolve relative sibling', function() {
@@ -20,5 +21,12 @@ describe('module resolver', function () {
     expect(function() {
       return moduleResolve('../../bizz', 'example')
     }).to.throw(/Cannot access parent module of root/);
+  });
+  
+  it('should not throw if specified', function() {
+    expect(function() {
+      var r = resolveModules({ throwOnRootAccess: false });
+      return r('../../bizz', 'example')
+    }).to.not.throw(/Cannot access parent module of root/);
   });
 });
