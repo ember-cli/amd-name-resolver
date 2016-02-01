@@ -1,9 +1,6 @@
-
-module.exports = moduleResolve;
-
 var throwOnRootAccess = true;
 
-exports.resolveModules = function resolveModules(options) {
+function resolveModules(options) {
   options = options || {};
   
   if (options.throwOnRootAccess === false) {
@@ -40,3 +37,8 @@ function moduleResolve(child, name) {
 
   return parentBase.join('/');
 }
+
+module.exports = {
+  moduleResolve: moduleResolve,
+  resolveModules: resolveModules
+};

@@ -1,8 +1,9 @@
 'use strict';
 
 var expect = require('chai').expect;
-var moduleResolve = require('./index');
-var resolveModules = moduleResolve.resolveModules;
+var amd = require('./index');
+var moduleResolve = amd.moduleResolve;
+var resolveModules = amd.resolveModules;
 
 describe('module resolver', function () {
   it('should resolve relative sibling', function() {
