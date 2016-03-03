@@ -1,16 +1,19 @@
 var throwOnRootAccess = true;
+var ensurePosix = require('ensure-posix-path');
 
 function resolveModules(options) {
   options = options || {};
-  
+
   if (options.throwOnRootAccess === false) {
     throwOnRootAccess = false;
   }
-  
+
   return moduleResolve;
 }
 
-function moduleResolve(child, name) {
+function moduleResolve(_child, _name) {
+  var child = ensurePosix(_child);
+  var name = ensurePosix(_name);
   if (child.charAt(0) !== '.') { return child; }
 
   var parts = child.split('/');
@@ -30,7 +33,6 @@ function moduleResolve(child, name) {
       }
       parentBase.pop();
     } else if (part === '.') {
-      
       continue;
     } else { parentBase.push(part); }
   }
