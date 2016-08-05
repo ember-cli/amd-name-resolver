@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "AMD module name resolver algorithm",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "mocha -R dot test.js"
   },
