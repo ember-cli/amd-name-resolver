@@ -23,11 +23,15 @@ describe('module resolver', function () {
       return moduleResolve('../../bizz', 'example')
     }).to.throw(/Cannot access parent module of root/);
   });
-  
+
   it('should not throw if specified', function() {
     expect(function() {
       var r = resolveModules({ throwOnRootAccess: false });
       return r('../../bizz', 'example')
     }).to.not.throw(/Cannot access parent module of root/);
+  });
+
+  it('should be true', function() {
+    expect(true).to.be.ok;
   });
 });
