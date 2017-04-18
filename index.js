@@ -14,6 +14,12 @@ function resolveModules(options) {
 function moduleResolve(_child, _name) {
   var child = ensurePosix(_child);
   var name = ensurePosix(_name);
+
+  if (child.charAt(0) === '/') {
+    var root = name.split('/')[0];
+    return root + child;
+  }
+
   if (child.charAt(0) !== '.') { return child; }
 
   var parts = child.split('/');

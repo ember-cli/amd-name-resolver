@@ -13,6 +13,10 @@ describe('module resolver', function () {
   it('should resolve relative parent', function() {
     expect(moduleResolve('../foo', 'example/bar/baz')).to.eql('example/foo');
   });
+  
+  it('should resolve root relative', function() {
+    expect(moduleResolve('/foo', 'example/bar/baz/boo')).to.eql('example/foo');
+  });
 
   it('should be a pass through if absolute', function() {
     expect(moduleResolve('foo/bar', 'example/')).to.eql('foo/bar');
