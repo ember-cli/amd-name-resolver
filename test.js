@@ -23,11 +23,20 @@ describe('module resolver', function () {
       return moduleResolve('../../bizz', 'example')
     }).to.throw(/Cannot access parent module of root/);
   });
-  
+
   it('should not throw if specified', function() {
     expect(function() {
       var r = resolveModules({ throwOnRootAccess: false });
       return r('../../bizz', 'example')
     }).to.not.throw(/Cannot access parent module of root/);
+  });
+});
+
+describe('parallel API', function() {
+  it('should be setup correctly', function() {
+    expect(moduleResolve._parallelAPI).to.be.an('array');
+    expect(moduleResolve._parallelAPI.length).to.eql(2);
+    expect(moduleResolve._parallelAPI[0]).to.eql(__dirname);
+    expect(moduleResolve._parallelAPI[1]).to.eql({ callback: 'moduleResolve' });
   });
 });

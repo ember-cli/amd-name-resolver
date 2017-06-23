@@ -40,6 +40,9 @@ function moduleResolve(_child, _name) {
   return parentBase.join('/');
 }
 
+// parallel API - enable parallel babel transpilation using this function
+moduleResolve._parallelAPI = [__dirname, { callback: 'moduleResolve' }];
+
 module.exports = {
   moduleResolve: moduleResolve,
   resolveModules: resolveModules
