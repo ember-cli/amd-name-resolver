@@ -32,11 +32,10 @@ describe('module resolver', function () {
   });
 });
 
-describe('parallel API', function() {
+describe('parallel babel transpilation', function() {
   it('should be setup correctly', function() {
-    expect(moduleResolve._parallelAPI).to.be.an('array');
-    expect(moduleResolve._parallelAPI.length).to.eql(2);
-    expect(moduleResolve._parallelAPI[0]).to.eql(__dirname);
-    expect(moduleResolve._parallelAPI[1]).to.eql({ callback: 'moduleResolve' });
+    expect(moduleResolve._parallelBabel).to.be.an('object');
+    expect(moduleResolve._parallelBabel.requireFile).to.eql(__dirname);
+    expect(moduleResolve._parallelBabel.useMethod).to.eql('moduleResolve');
   });
 });
