@@ -4,6 +4,7 @@ var ensurePosix = require('ensure-posix-path');
  * Configures the module resolver. Empty options will reset to default settings
  * @typedef {Object} Options
  * @property {Bool} throwOnRootAccess whether to throw on
+ * @property {String} moduleRoot to use for each of the resolved modules
  * @param  {Options} options
  * @returns {Function} configured module resolver
  */
@@ -16,6 +17,9 @@ function resolveModules(options) {
     throwOnRootAccess = false;
   }
 
+  if (typeof options.moduleRoot === 'string') {
+    moduleRoot = options.moduleRoot;
+  }
 
   /**
    * Module resolver for AMD transpiling (Babel)
@@ -33,6 +37,10 @@ function resolveModules(options) {
     var parts = child.split('/');
     var nameParts = name.split('/');
     var parentBase = nameParts.slice(0, -1);
+    // Add moduleRoot if not already present
+    if (moduleRoot && nameParts[0] !== moduleRoot) {
+      parentBase = moduleRoot.split('/').concat(parentBase);
+    }
 
     for (var i = 0, l = parts.length; i < l; i++) {
       var part = parts[i];
