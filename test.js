@@ -12,12 +12,27 @@ describe('module resolver', function() {
     expect(moduleResolve('./foo', 'example/bar')).to.eql('example/foo');
   });
 
+  it('should resolve relative sibling with moduleRoot', function() {
+    var resolver = resolveModules({ moduleRoot: 'base/dir' });
+    expect(resolver('./foo', 'example/bar')).to.eql('base/dir/example/foo');
+  });
+
   it('should resolve relative parent', function() {
     expect(moduleResolve('../foo', 'example/bar/baz')).to.eql('example/foo');
   });
 
+  it('should resolve relative parent with moduleRoot', function() {
+    var resolver = resolveModules({ moduleRoot: 'base/dir' });
+    expect(resolver('../foo', 'example/bar/baz')).to.eql('base/dir/example/foo');
+  });
+
   it('should be a pass through if absolute', function() {
     expect(moduleResolve('foo/bar', 'example/')).to.eql('foo/bar');
+  });
+
+  it('should be a pass through if absolute with moduleRoot', function() {
+    var resolver = resolveModules({ moduleRoot: 'base/dir' });
+    expect(resolver('foo/bar', 'example/')).to.eql('foo/bar');
   });
 
   it('should throw parent module of root is accesed', function() {
