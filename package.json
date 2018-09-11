@@ -25,5 +25,8 @@
   },
   "dependencies": {
     "ensure-posix-path": "^1.0.1"
+  },
+  "engines": {
+    "node": "6.* || 8.* || >= 10.*"
   }
 }
