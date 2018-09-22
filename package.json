@@ -21,7 +21,7 @@
   "devDependencies": {
     "broccoli-babel-transpiler": "^5.7.1",
     "chai": "^4.1.2",
-    "mocha": "^2.2.5"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "ensure-posix-path": "^1.0.1"
