@@ -19,7 +19,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "broccoli-babel-transpiler": "^5.7.1",
+    "broccoli-babel-transpiler": "^7.1.0",
     "chai": "^4.1.2",
     "mocha": "^5.2.0"
   },
