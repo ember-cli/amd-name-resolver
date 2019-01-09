@@ -7,6 +7,7 @@
     "index.js"
   ],
   "scripts": {
+    "changelog": "lerna-changelog",
     "test": "mocha -R dot test.js"
   },
   "keywords": [
@@ -21,6 +22,7 @@
   "devDependencies": {
     "broccoli-babel-transpiler": "^5.7.1",
     "chai": "^4.2.0",
+    "lerna-changelog": "^0.8.2",
     "mocha": "^5.2.0"
   },
   "dependencies": {
