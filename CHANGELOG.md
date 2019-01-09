@@ -3,7 +3,7 @@
 ## v1.3.1 (2019-01-09)
 
 #### :bug: Bug Fix
-* [#26](https://github.com/ember-cli/amd-name-resolver/commit/92f7136) Add `relative-module-paths` to the list of published files ([@Turbo87](https://github.com/Turbo87))
+* [92f7136](https://github.com/ember-cli/amd-name-resolver/commit/92f7136) Add `relative-module-paths` to the list of published files ([@Turbo87](https://github.com/Turbo87))
 
 #### Committers: 1
 - Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))
