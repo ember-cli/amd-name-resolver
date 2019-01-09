@@ -4,7 +4,8 @@
   "description": "AMD module name resolver algorithm",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "relative-module-paths.js"
   ],
   "scripts": {
     "changelog": "lerna-changelog",
