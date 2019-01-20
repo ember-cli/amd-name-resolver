@@ -30,7 +30,7 @@ function resolveModules(options) {
    */
   function moduleResolve(_child, _name) {
     var child = ensurePosix(_child);
-    var name = ensurePosix(_name);
+    var name = _name && ensurePosix(_name);
     if (child.charAt(0) !== '.') {
       return child;
     }
