@@ -23,7 +23,7 @@
   "devDependencies": {
     "broccoli-babel-transpiler": "^5.7.1",
     "chai": "^4.3.4",
-    "lerna-changelog": "^0.8.3",
+    "lerna-changelog": "^1.0.1",
     "mocha": "^6.2.2"
   },
   "dependencies": {
